@@ -75,8 +75,9 @@ ggplot(ca_covid19, aes(x=reorder(pais, -positivos), y=positivos)) +
   theme_bw()+
   scale_colour_grey()+
   geom_text(aes(label=positivos), vjust=-0.3, size=3.5
- 
- ca_recuperados.ordenado <- order(ca_covid19$recuperados, decreasing=TRUE)
+ ) 
+
+ca_recuperados.ordenado <- order(ca_covid19$recuperados, decreasing=TRUE)
 ca_covid19.recuperados <- ca_covid19[ca_recuperados.ordenado,]
 ggplot(ca_covid19, aes(x=reorder(pais, -recuperados), y=recuperados))+
   ggtitle("Casos recuperados de COVID-19 en Centroamerica y DOM") +
@@ -85,9 +86,8 @@ ggplot(ca_covid19, aes(x=reorder(pais, -recuperados), y=recuperados))+
   geom_col() +
   theme_bw()+
   geom_text(aes(label=recuperados), vjust=-0.3, size=3.5
-)                      
-            
 )
+
 ```
 
 
