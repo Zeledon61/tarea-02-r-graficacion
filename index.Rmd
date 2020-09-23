@@ -63,6 +63,33 @@ summary(ca_covid19)
 ```
 
 3. Genere gráficos de barras de los casos positivos (20%), recuperados (20%), activos (20%) y fallecidos (20%).
+```{r}
+library(ggplot2)
+ca_positivos.ordenado <- order(ca_covid19$positivos, decreasing=TRUE)
+ca_covid19.positivos <- ca_covid19[ca_positivos.ordenado,]
+ggplot(ca_covid19, aes(x=reorder(pais, -positivos), y=positivos)) +
+  ggtitle("Casos positivos de COVID-19 en Centroamerica y DOM") +
+  xlab("Pais") + 
+  ylab("Casos positivos") +  
+  geom_col() +
+  theme_bw()+
+  scale_colour_grey()+
+  geom_text(aes(label=positivos), vjust=-0.3, size=3.5
+ 
+ ca_recuperados.ordenado <- order(ca_covid19$recuperados, decreasing=TRUE)
+ca_covid19.recuperados <- ca_covid19[ca_recuperados.ordenado,]
+ggplot(ca_covid19, aes(x=reorder(pais, -recuperados), y=recuperados))+
+  ggtitle("Casos recuperados de COVID-19 en Centroamerica y DOM") +
+  xlab("Pais") + 
+  ylab("Casos recuperados") +  
+  geom_col() +
+  theme_bw()+
+  geom_text(aes(label=recuperados), vjust=-0.3, size=3.5
+)                      
+            
+)
+```
+
 
 Las barras deben estar ordenadas de mayor (a la izquierda o arriba) a menor (a la derecha o abajo) cantidad de casos. Incluya en el gráfico los siguientes componentes:
 
