@@ -99,6 +99,17 @@ ggplot(ca_covid19, aes(x=reorder(pais, -activos), y=activos)) +
   geom_text(aes(label=activos), vjust=-0.3, size=3.5
 )
 
+ca_fallecidos.ordenado <- order(ca_covid19$fallecidos, decreasing=TRUE)
+ca_covid19.fallecidos <- ca_covid19[ca_fallecidos.ordenado,]
+ggplot(ca_covid19, aes(x=reorder(pais, -fallecidos), y=fallecidos)) +
+  ggtitle("Casos fallecidos de COVID-19 en Centroamerica y DOM") +
+  xlab("Pais") + 
+  ylab("Casos fallecidos") +  
+  geom_col() +
+  theme_bw()+
+  geom_text(aes(label=fallecidos), vjust=-0.3, size=3.5
+)
+
 ```
 
 
